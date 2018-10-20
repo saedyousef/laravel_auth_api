@@ -31,3 +31,15 @@ Route::group([
     Route::post('signup', 'AuthController@signup');
 
 });
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'users'
+
+], function ($router) {
+
+    Route::get('info', 'UsersController@get_user_details');
+    Route::post('profile/edit', 'UsersController@edit_profile');
+
+});
